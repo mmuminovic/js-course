@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body id="body">
+    <h1>This is my first website using JS</h1>
+    <p>This is a paragraph</p>
+    <div style="background-color: #abcabc">
+      <div style="background-color: red; height: 100px" id="message"></div>
+      <button id="changeButton">Change style</button>
+    </div>
+
+    <div style="text-align: center; background-color: #ccc">
+      <div>
+        <img
+          id="slika"
+          src="https://static.scientificamerican.com/sciam/cache/file/1DDFE633-2B85-468D-B28D05ADAE7D1AD8_source.jpg"
+          alt="sl"
+          width="200px"
+        />
+      </div>
+      <button id="buttonslika1">Slika 1</button>
+      <button id="buttonslika2">Slika 2</button>
+    </div>
+
+    <div>
+      <button id="light">Light mode</button>
+      <button id="dark">Dark mode</button>
+    </div>
+
+    <script>
+      var tamnaPozadina = "background-color: #333333;";
+      var beliText = "color: white;";
+      var plavaPozadina = "background-color: blue;";
+      var helloWorldMessage = "Hello world!";
+      //   document.write("Hello world!");
+      //   alert("Hello world from Alert!");
+      //   var a = 1;
+      //   console.log("Ovo je vrednost varijable a", a);
+      document
+        .getElementById("changeButton")
+        .addEventListener("click", function () {
+          document.getElementById("message").textContent = helloWorldMessage;
+          document.getElementById("message").style = plavaPozadina + beliText;
+        });
+
+      //
+      // ZA SLIKE SKRIPTE
+      document
+        .getElementById("buttonslika1")
+        .addEventListener("click", function () {
+          document.getElementById("slika").src =
+            "https://static.scientificamerican.com/sciam/cache/file/1DDFE633-2B85-468D-B28D05ADAE7D1AD8_source.jpg";
+        });
+
+      document
+        .getElementById("buttonslika2")
+        .addEventListener("click", function () {
+          document.getElementById("slika").src =
+            "https://img-cdn.inc.com/image/upload/w_1920,h_1080,c_fill/images/panoramic/GettyImages-577674005_492115_zfpgiw.jpg";
+        });
+      //
+      //
+
+      //
+      // DARK & LIGHT MODE
+      document.getElementById("light").addEventListener("click", function () {
+        document.getElementById("body").style = "background-color: white";
+      });
+      document.getElementById("dark").addEventListener("click", function () {
+        document.getElementById("body").style = tamnaPozadina + beliText;
+      });
+      //
+      //
+    </script>
+
+    <script>
+      //
+      // Brojevi u JS
+      var prviBroj = 5;
+      var drugiBroj = 6;
+      var zbir = prviBroj + drugiBroj;
+      var razlika = drugiBroj - prviBroj;
+      var kolicnik = drugiBroj / prviBroj;
+      var proizvod = prviBroj * drugiBroj;
+      console.log("Zbir iznosi:", zbir);
+
+      //
+      // Stringovi u JS
+      var fullName = "Muhamed Muminovic";
+      var mestoRodjenja = "Novi Pazar";
+      console.log(fullName + " " + mestoRodjenja);
+    </script>
+  </body>
+</html>
