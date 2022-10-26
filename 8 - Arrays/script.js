@@ -74,7 +74,7 @@ koliko od tih brojeva je deljivo sa 3
 var fibonacijevNiz = [0,1,1,2,3,5,8,13,21,34...]
 
 var pocetniNiz = [0,1]
-var iPrviSabirak = 1
+var iPrviSabirak = 0
 var iDrugiSabir = 1
 
 for(var i=2; i < 20; i++){
