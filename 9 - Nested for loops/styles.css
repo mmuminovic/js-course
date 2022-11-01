@@ -1,0 +1,39 @@
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table th {
+  border: 1px solid black;
+  background-color: rgb(159, 72, 72);
+  color: white;
+  padding: 8px;
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+table td {
+  text-align: center;
+  padding: 8px;
+  border: 1px solid black;
+}
+
+p {
+  text-align: center;
+  padding: 8px;
+  background-color: rgb(159, 72, 72);
+  color: white;
+  margin: 16px;
+}
