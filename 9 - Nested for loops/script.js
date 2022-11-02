@@ -13,6 +13,7 @@ for (i = 1; i <= 10; i++) {
     var td = document.createElement("td");
     td.textContent = proizvod;
     row.appendChild(td);
+    console.log(i + "x" + j + "=" + proizvod);
   }
 
   tablica.appendChild(row);
