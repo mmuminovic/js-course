@@ -81,3 +81,62 @@ var reversedName = reversedLetters.join('');
 
 console.log(reversedName);
 */
+
+// https://www.codewars.com/kata/5a3dd29055519e23ec000074
+function checkExam(correctAnswers, studentAnswers) {
+  var points = 0;
+  for (var i = 0; i <= correctAnswers.length - 1; i++) {
+    if (studentAnswers[i] === "") {
+      continue;
+    }
+    if (correctAnswers[i] === studentAnswers[i]) {
+      points = points + 4;
+    } else {
+      points = points - 1;
+    }
+  }
+  if (points < 0) {
+    return 0;
+  }
+  return points;
+}
+
+// https://www.codewars.com/kata/580a4734d6df748060000045
+function isSortedAndHow(array) {
+  // "ascending" - rastuce, "descending" - opadajuce, "no" - nije sortiran
+  // [1,3,6,9,6,11,16]
+  var typeOfSort;
+  if(array[0] < array[1]){
+    typeOfSort = "yes, ascending";
+  } else if(array[0] > array[1]){
+    typeOfSort = "yes, descending";
+  } else {
+    typeOfSort = "no"
+    return typeOfSort;
+  }
+  for(var i=1; i<=array.length-1; i++){
+    if(typeOfSort === "yes, ascending" && array[i-1] > array[i]){
+      typeOfSort = "no";
+      break;
+    }
+    if(typeOfSort === "yes, descending" && array[i-1] < array[i]){
+      typeOfSort = "no";
+      break;
+    }
+  }
+  return typeOfSort;
+  
+}
+
+// https://www.codewars.com/kata/539ee3b6757843632d00026b
+var capitals = function (word) {
+  var letters = word.split('');
+  // "book".split('') ===> ["b", "o", "o", "k"]
+  var indexesOfUpperCase = [];
+  for(var i=0; i<=letters.length-1; i++){
+    if(letters[i] === letters[i].toUpperCase()){
+      indexesOfUpperCase.push(i);
+    }
+  }
+  return indexesOfUpperCase;
+};
