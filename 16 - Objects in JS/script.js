@@ -2,10 +2,12 @@ var grades = [];
 
 function getGrade() {
   var gradeNum = +document.getElementById("num").value;
+  var gradeSubject = document.getElementById("subjectName").value;
 
-  var grade = { num: gradeNum };
+  var grade = { num: gradeNum, subject: gradeSubject };
 
   document.getElementById("num").value = "";
+  document.getElementById("subjectName").value = "";
   return grade;
 }
 
@@ -26,7 +28,7 @@ function renderAllGrades() {
     // napravimo html element - list item (createElement)
     var listItem = document.createElement("li");
     // dodajemo u novonapravljeni element informacije o oceni (.textContent = ocena)
-    listItem.textContent = grades[i].num;
+    listItem.textContent = grades[i].num + " - " + grades[i].subject;
     // appendujemo taj napravljeni html element u parent html elemet
     list.appendChild(listItem);
   }
