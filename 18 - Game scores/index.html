@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div>
+        <div class="result" id="average">
+          <p>Marroco <span id="marrocoScore">0</span></p>
+          <p>:</p>
+          <p><span id="franceScore">0</span> France</p>
+        </div>
+        <div>
+          <input type="number" id="min" placeholder="Minute" />
+          <input type="text" id="score" placeholder="Football player" />
+          <select name="" id="team">
+            <option value="" disabled>Select team</option>
+            <option value="Marroco">Marroco</option>
+            <option value="France">France</option>
+          </select>
+        </div>
+        <div class="flex">
+          <button id="addGoal">Goal!</button>
+        </div>
+        <ul id="listOfGoals">
+          <li style="text-align: right;">5 Muhamed</li>
+          <li style="text-align: left;">5 Muhamed</li>
+        </ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
