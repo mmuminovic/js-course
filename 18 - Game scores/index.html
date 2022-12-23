@@ -7,21 +7,33 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body id="body">
     <div class="wrapper">
-      <div>
+      <div style="position: relative;">
+        <div class="goal-div" id="goal-gif">
+          <img src="goal.webp" alt="">
+        </div>
+        <div class="result" id="average">
+          <span id="time">00:00</span>
+        </div>
         <div class="result" id="average">
           <p>Morocco <span id="moroccoScore">0</span></p>
           <p>:</p>
           <p><span id="franceScore">0</span> France</p>
         </div>
         <div>
-          <input type="number" id="min" placeholder="Minute" />
+          <!-- <input type="number" id="min" placeholder="Minute" /> -->
           <input type="text" id="score" placeholder="Football player" />
           <select id="team">
             <option value="" disabled selected>Select team</option>
             <option value="morocco">Morocco</option>
             <option value="France">France</option>
+          </select>
+          <select id="event">
+            <option value="" disabled selected>Select event</option>
+            <option value="goal">Goal</option>
+            <option value="yellowcard">Yellow card</option>
+            <option value="redcard">Red card</option>
           </select>
         </div>
         <div class="flex">
