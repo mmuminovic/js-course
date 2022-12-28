@@ -57,6 +57,14 @@ document.getElementById("addGoal").addEventListener("click", function () {
     img: imgSrc,
   };
 
+  if (event === "goal") {
+    document.getElementById("goal-gif").style.display = "block";
+
+    setTimeout(function () {
+      document.getElementById("goal-gif").style.display = "none";
+    }, 3000); // milisekunde ==> 1 sekunda = 1000 milisekundi
+  }
+
   // Objekat saljemo u niz goals
   goals.push(goal);
 
@@ -97,12 +105,6 @@ document.getElementById("addGoal").addEventListener("click", function () {
     listOfGoalsElement.appendChild(goalElement);
   });
 
-  document.getElementById("goal-gif").style.display = "block";
-
-  setTimeout(function () {
-    document.getElementById("goal-gif").style.display = "none";
-  }, 3000); // milisekunde ==> 1 sekunda = 1000 milisekundi
-
   // Ispisujemo rezultat
   document.getElementById("moroccoScore").textContent = moroccoGoals;
   document.getElementById("franceScore").textContent = franceGoals;
@@ -139,3 +141,7 @@ document.getElementById("addGoal").addEventListener("click", function () {
 //   document.getElementById('time').textContent = time;
 
 // }, 1000*60);
+
+// setInterval(function () {
+//   console.log("Hello from setInterval!");
+// }, 2 * 1000); // 1 sec = 1000 miliseconds
