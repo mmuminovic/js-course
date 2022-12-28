@@ -49,13 +49,24 @@ document.getElementById("addGoal").addEventListener("click", function () {
       break;
   }
 
+  var date = new Date();
+  var dateOfGoal =
+    date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+  console.log(dateOfGoal);
+  var timeOfGoal = date.getHours() + ":" + date.getMinutes();
+  console.log(timeOfGoal);
+  console.log(date);
+
   // Smestamo vrednosti u objekat kao propertiji
   var goal = {
     min: min,
     player: player,
     team: team,
     img: imgSrc,
+    date: date,
   };
+
+  // console.log(goal.date.getFullYear());
 
   if (event === "goal") {
     document.getElementById("goal-gif").style.display = "block";
@@ -108,6 +119,7 @@ document.getElementById("addGoal").addEventListener("click", function () {
   // Ispisujemo rezultat
   document.getElementById("moroccoScore").textContent = moroccoGoals;
   document.getElementById("franceScore").textContent = franceGoals;
+  console.log(goals);
 });
 
 // var colorInt = 255;
@@ -145,3 +157,8 @@ document.getElementById("addGoal").addEventListener("click", function () {
 // setInterval(function () {
 //   console.log("Hello from setInterval!");
 // }, 2 * 1000); // 1 sec = 1000 miliseconds
+
+// Dates
+// var date = new Date();
+// date.setMonth(5);
+// console.log(date);
