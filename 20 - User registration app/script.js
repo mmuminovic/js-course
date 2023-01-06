@@ -15,13 +15,22 @@ class User {
   printUsername() {
     console.log("username = ", this.username);
   }
+  static checkIsUserCreatedRecently(user) {
+    // da li je kreiran u poslednjih nedelju dana
+    return true;
+  }
 }
+
+var myUser = new User("muhamedm", "muhamed1234W");
+// user.printUsername();
+User.checkIsUserCreatedRecently(myUser);
 
 class Admin extends User {
   constructor(username, password, duty) {
     super(username, password);
     this.privileges = ["read", "write", "edit"];
     this.duty = duty;
+    this.role = "admin";
   }
 }
 
@@ -30,6 +39,7 @@ class Moderator extends User {
     super(username, password);
     this.privileges = ["read", "write"];
     this.duty = duty;
+    this.role = "moderator";
   }
 }
 
