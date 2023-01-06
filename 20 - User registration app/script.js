@@ -12,6 +12,25 @@ class User {
     var partsOfString = numberToString.split("."); // ["0", "1234534364563"]
     this.id = partsOfString[1];
   }
+  printUsername() {
+    console.log("username = ", this.username);
+  }
+}
+
+class Admin extends User {
+  constructor(username, password, duty) {
+    super(username, password);
+    this.privileges = ["read", "write", "edit"];
+    this.duty = duty;
+  }
+}
+
+class Moderator extends User {
+  constructor(username, password, duty) {
+    super(username, password);
+    this.privileges = ["read", "write"];
+    this.duty = duty;
+  }
 }
 
 document.getElementById("submit").addEventListener("click", function () {
