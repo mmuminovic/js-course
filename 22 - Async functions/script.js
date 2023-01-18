@@ -57,8 +57,12 @@ fetch("https://jsonplaceholder.typicode.com/posts", {
     "Content-type": "application/json; charset=UTF-8",
   },
 })
-  .then((response) => response.json())
-  .then((json) => console.log(json));
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+  });
 
 // var user = {
 //   name: "Muhamed",
