@@ -21,6 +21,9 @@ document.getElementById("addnew").addEventListener("click", function () {
       return res.json();
     })
     .then(function (data) {
-      console.log("The quote is created", data);
+      document.getElementById("quoteSource").value = "";
+      document.getElementById("quoteText").value = "";
+      document.getElementById("quoteAuthor").value = "";
+      alert("Vas citat je uspesno dodat");
     });
 });
