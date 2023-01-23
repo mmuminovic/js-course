@@ -1,4 +1,4 @@
-document.getElementById("addnew").addEventListener("click", function () {
+document.getElementById("addNew").addEventListener("click", function () {
   var text = document.getElementById("quoteText").value;
   var author = document.getElementById("quoteAuthor").value;
   var source = document.getElementById("quoteSource").value;
@@ -25,5 +25,8 @@ document.getElementById("addnew").addEventListener("click", function () {
       document.getElementById("quoteText").value = "";
       document.getElementById("quoteAuthor").value = "";
       alert("Vas citat je uspesno dodat");
+    })
+    .catch(function (error) {
+      console.log("error:", error);
     });
 });
