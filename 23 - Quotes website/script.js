@@ -25,6 +25,7 @@ function renderQuotes() {
     var quoteTextEl = document.createElement("p");
     var quoteLikesEl = document.createElement("p");
     var likeEl = document.createElement("img");
+    var editEl = document.createElement("img");
     var deleteEl = document.createElement("img");
 
     quoteTextEl.textContent =
@@ -37,6 +38,12 @@ function renderQuotes() {
       likeQuote(item._id);
     };
 
+    editEl.src = "edit.png";
+    editEl.style = "width: 30px";
+    editEl.onclick = function () {
+      window.location.href = "edit-quote.html?quoteId=" + item._id;
+    };
+
     deleteEl.src = "remove.png";
     deleteEl.style = "width: 30px";
     deleteEl.onclick = function () {
@@ -46,6 +53,7 @@ function renderQuotes() {
     childEl.appendChild(quoteTextEl);
     childEl.appendChild(quoteLikesEl);
     childEl.appendChild(likeEl);
+    childEl.appendChild(editEl);
     childEl.appendChild(deleteEl);
 
     parentEl.appendChild(childEl);
