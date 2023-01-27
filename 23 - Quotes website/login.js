@@ -18,10 +18,10 @@ document.getElementById("login").addEventListener("click", function () {
       return response.json();
     })
     .then(function (data) {
-      if (data.message) {
-        alert("Email ili sifra nisu tacni");
-      } else {
+      if (data.userId) {
         alert("Prijava uspesna!");
+      } else {
+        alert("Neuspesno");
       }
     });
 });

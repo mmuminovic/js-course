@@ -22,6 +22,12 @@ document.getElementById("login").addEventListener("click", function () {
       return response.json();
     })
     .then(function (data) {
-      alert(data.message);
+      if (data.userId) {
+        // uspesno
+        alert("Uspesna regisracija");
+      } else {
+        // neuspesno
+        alert("Neuspesno");
+      }
     });
 });
