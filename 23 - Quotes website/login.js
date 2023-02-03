@@ -1,8 +1,8 @@
-document.getElementById("login").addEventListener("click", function () {
-  var email = document.getElementById("email").value;
-  var password = document.getElementById("password").value;
+document.getElementById("login").addEventListener("click", () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-  var loginData = {
+  const loginData = {
     email: email,
     password: password,
   };
@@ -14,12 +14,13 @@ document.getElementById("login").addEventListener("click", function () {
       "Content-Type": "application/json",
     },
   })
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
+    .then((response) => response.json())
+    .then((data) => {
       if (data.userId) {
+        localStorage.setItem("auth_token", data.token);
+        localStorage.setItem("userId", data.userId);
         alert("Prijava uspesna!");
+        window.location.href = "index.html";
       } else {
         alert("Neuspesno");
       }

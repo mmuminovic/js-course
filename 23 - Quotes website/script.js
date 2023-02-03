@@ -1,32 +1,35 @@
-var quotes = [];
-var allQuotes = [];
+let quotes = [];
+let allQuotes = [];
 
-function likeQuote(id) {
+const likeQuote = (id) => {
   fetch("https://js-course-server.onrender.com/quotes/like/" + id, {
     method: "PATCH",
   }).then((response) => {
     getQuotes();
   });
-}
+};
 
-function deleteQuote(id) {
+const deleteQuote = (id) => {
   fetch("https://js-course-server.onrender.com/quotes/delete/" + id, {
     method: "DELETE",
+    headers: {
+      Authorization: localStorage.getItem("auth_token"),
+    },
   }).then((response) => {
     getQuotes();
   });
-}
+};
 
-function renderQuotes() {
-  var parentEl = document.getElementById("list");
+const renderQuotes = () => {
+  const parentEl = document.getElementById("list");
   parentEl.innerHTML = "";
   quotes.forEach(function (item, index) {
-    var childEl = document.createElement("li");
-    var quoteTextEl = document.createElement("p");
-    var quoteLikesEl = document.createElement("p");
-    var likeEl = document.createElement("img");
-    var editEl = document.createElement("img");
-    var deleteEl = document.createElement("img");
+    const childEl = document.createElement("li");
+    const quoteTextEl = document.createElement("p");
+    const quoteLikesEl = document.createElement("p");
+    const likeEl = document.createElement("img");
+    const editEl = document.createElement("img");
+    const deleteEl = document.createElement("img");
 
     quoteTextEl.textContent =
       item.quoteText + " - " + item.quoteAuthor + " - " + item.quoteSource;
@@ -53,33 +56,35 @@ function renderQuotes() {
     childEl.appendChild(quoteTextEl);
     childEl.appendChild(quoteLikesEl);
     childEl.appendChild(likeEl);
-    childEl.appendChild(editEl);
-    childEl.appendChild(deleteEl);
+
+    const authToken = localStorage.getItem("auth_token");
+    if (authToken) {
+      childEl.appendChild(editEl);
+      childEl.appendChild(deleteEl);
+    }
 
     parentEl.appendChild(childEl);
   });
-}
+};
 
-async function getQuotes() {
+const getQuotes = () => {
   fetch("https://js-course-server.onrender.com/quotes/get-all-quotes")
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
+    .then((response) => response.json())
+    .then((data) => {
       quotes = data;
       allQuotes = data;
       renderQuotes();
     })
-    .catch(function (err) {
+    .catch((err) => {
       console.log("err", err);
     });
-}
+};
 
 getQuotes();
 
-document.getElementById("search").addEventListener("keydown", function () {
-  var searchValue = document.getElementById("search").value;
-  quotes = allQuotes.filter(function (item, index) {
+document.getElementById("search").addEventListener("keydown", () => {
+  const searchValue = document.getElementById("search").value;
+  quotes = allQuotes.filter((item, index) => {
     if (item.quoteText) {
       return item.quoteText.toLowerCase().includes(searchValue.toLowerCase());
     } else {

@@ -1,9 +1,14 @@
-document.getElementById("addNew").addEventListener("click", function () {
-  var text = document.getElementById("quoteText").value;
-  var author = document.getElementById("quoteAuthor").value;
-  var source = document.getElementById("quoteSource").value;
+const token = localStorage.getItem("auth_token");
+if (!token) {
+  window.location.href = "index.html";
+}
 
-  var newQuote = {
+document.getElementById("addNew").addEventListener("click", () => {
+  const text = document.getElementById("quoteText").value;
+  const author = document.getElementById("quoteAuthor").value;
+  const source = document.getElementById("quoteSource").value;
+
+  const newQuote = {
     quoteText: text,
     quoteAuthor: author,
     quoteSource: source,
@@ -13,20 +18,18 @@ document.getElementById("addNew").addEventListener("click", function () {
     method: "POST",
     body: JSON.stringify(newQuote),
     headers: {
-      accept: "application/json",
       "Content-Type": "application/json",
+      Authorization: localStorage.getItem("auth_token"),
     },
   })
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (data) {
+    .then((res) => res.json())
+    .then((data) => {
       document.getElementById("quoteSource").value = "";
       document.getElementById("quoteText").value = "";
       document.getElementById("quoteAuthor").value = "";
       alert("Vas citat je uspesno dodat");
     })
-    .catch(function (error) {
+    .catch((error) => {
       console.log("error:", error);
     });
 });

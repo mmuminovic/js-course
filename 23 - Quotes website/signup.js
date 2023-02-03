@@ -1,10 +1,10 @@
-document.getElementById("login").addEventListener("click", function () {
-  var email = document.getElementById("email").value;
-  var password = document.getElementById("password").value;
-  var confirmPassword = document.getElementById("confirmPassword").value;
-  var fullName = document.getElementById("fullName").value;
+document.getElementById("login").addEventListener("click", () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+  const fullName = document.getElementById("fullName").value;
 
-  var loginData = {
+  const loginData = {
     email: email,
     password: password,
     confirmPassword: confirmPassword,
@@ -18,13 +18,12 @@ document.getElementById("login").addEventListener("click", function () {
       "Content-Type": "application/json",
     },
   })
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
+    .then((response) => response.json())
+    .then((data) => {
       if (data.userId) {
         // uspesno
         alert("Uspesna regisracija");
+        window.location.href = "login.html";
       } else {
         // neuspesno
         alert("Neuspesno");
