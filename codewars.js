@@ -106,37 +106,99 @@ function isSortedAndHow(array) {
   // "ascending" - rastuce, "descending" - opadajuce, "no" - nije sortiran
   // [1,3,6,9,6,11,16]
   var typeOfSort;
-  if(array[0] < array[1]){
+  if (array[0] < array[1]) {
     typeOfSort = "yes, ascending";
-  } else if(array[0] > array[1]){
+  } else if (array[0] > array[1]) {
     typeOfSort = "yes, descending";
   } else {
-    typeOfSort = "no"
+    typeOfSort = "no";
     return typeOfSort;
   }
-  for(var i=1; i<=array.length-1; i++){
-    if(typeOfSort === "yes, ascending" && array[i-1] > array[i]){
+  for (var i = 1; i <= array.length - 1; i++) {
+    if (typeOfSort === "yes, ascending" && array[i - 1] > array[i]) {
       typeOfSort = "no";
       break;
     }
-    if(typeOfSort === "yes, descending" && array[i-1] < array[i]){
+    if (typeOfSort === "yes, descending" && array[i - 1] < array[i]) {
       typeOfSort = "no";
       break;
     }
   }
   return typeOfSort;
-  
 }
 
 // https://www.codewars.com/kata/539ee3b6757843632d00026b
 var capitals = function (word) {
-  var letters = word.split('');
+  var letters = word.split("");
   // "book".split('') ===> ["b", "o", "o", "k"]
   var indexesOfUpperCase = [];
-  for(var i=0; i<=letters.length-1; i++){
-    if(letters[i] === letters[i].toUpperCase()){
+  for (var i = 0; i <= letters.length - 1; i++) {
+    if (letters[i] === letters[i].toUpperCase()) {
       indexesOfUpperCase.push(i);
     }
   }
   return indexesOfUpperCase;
 };
+
+// https://www.codewars.com/kata/515e271a311df0350d00000f
+function squareSum(numbers) {
+  let sum = 0;
+  //     for(let i=0; i<= numbers.length - 1; i++){
+  //       sum = sum + numbers[i]*numbers[i]
+  //     }
+
+  //     for(const number of numbers){
+  //       sum = sum + number*number;
+  //     }
+
+  //     numbers.forEach(function(item,index){})
+  numbers.forEach((item, index) => {
+    sum = sum + item * item;
+  });
+
+  return sum;
+}
+
+// https://www.codewars.com/kata/559d2284b5bb6799e9000047
+function addLength(str) {
+  // str -> niz
+  // niz.map -> 'word' + ' ' + word.length
+  // "Hello world".split(' ') ==> ['Hello', 'world']
+  // ['Hello', 'world'].map((item) => item + ' ' + item.length)
+  const words = str.split(" ");
+  const wordsWithLength = words.map((item, index) => {
+    return item + " " + item.length;
+  });
+  return wordsWithLength;
+}
+
+// https://www.codewars.com/kata/56bc28ad5bdaeb48760009b0
+function removeChar(str) {
+  // 'str'.split('') ---> ['s', 't', 'r'];
+  const newArr = str.split("");
+  newArr.pop();
+  newArr.shift();
+  return newArr.join("");
+}
+
+// https://www.codewars.com/kata/57a0e5c372292dd76d000d7e
+function repeatStr(n, s) {
+  // a = ''
+  // '' + 'Hello' => 'Hello'
+  let str = "";
+  for (let i = 1; i <= n; i++) {
+    str = str + s;
+  }
+  return str;
+}
+
+// https://www.codewars.com/kata/57a1fd2ce298a731b20006a4
+function isPalindrome(x) {
+  // 'ana', 'oko', 'kuk'
+  // const palindrome = x.split('').reverse().join('').toLowerCase()
+  // return x.toLowerCase() === palindrome;
+  const characters = x.split("");
+  const charactersReverse = characters.reverse();
+  const reversedWord = charactersReverse.join();
+  return x.toLowerCase() === reversedWord.toLowerCase();
+}
