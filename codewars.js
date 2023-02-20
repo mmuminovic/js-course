@@ -254,10 +254,30 @@ function sumArray(array) {
 function enough(cap, on, wait) {
   // cap=100, on=60 ===> 40 ljudi, wait=50
   const bobCanTake = cap - on;
-  if(bobCanTake - wait >= 0){
-    return 0
+  if (bobCanTake - wait >= 0) {
+    return 0;
   } else {
     return wait - bobCanTake;
     // return on + wait - cap;
   }
 }
+
+// https://www.codewars.com/kata/63cbe409959401003e09978b
+const setReducer = (array) => {
+  let b = [];
+  counter = 1;
+  for (let i = 0; i <= array.length - 1; i++) {
+    if (array[i] === array[i + 1]) {
+      counter++;
+    } else {
+      b.push(counter);
+      counter = 1;
+    }
+  }
+  array = b;
+  if (array.length > 1) {
+    return setReducer(array);
+  } else {
+    return array[0];
+  }
+};
