@@ -202,3 +202,62 @@ function isPalindrome(x) {
   const reversedWord = charactersReverse.join();
   return x.toLowerCase() === reversedWord.toLowerCase();
 }
+
+// https://www.codewars.com/kata/57eae20f5500ad98e50002c5
+function noSpace(text) {
+  const svakoSlovoUTekstu = text.split(""); // 'Hello world ! ! !' ==> ['H', 'e', 'l', ' ', ' '...]
+  const arrWithoutSpaces = svakoSlovoUTekstu.filter((item, index) => {
+    return item !== " ";
+  });
+  return arrWithoutSpaces.join("");
+}
+
+// https://www.codewars.com/kata/53369039d7ab3ac506000467
+function boolToWord(bool) {
+  if (bool === true) {
+    return "Yes";
+  } else {
+    return "No";
+  }
+}
+
+// https://www.codewars.com/kata/54edbc7200b811e956000556
+function countSheeps(arrayOfSheep) {
+  const sheep = arrayOfSheep.filter((item, index) => {
+    return item === true;
+  });
+  return sheep.length;
+}
+
+// https://www.codewars.com/kata/576b93db1129fcf2200001e6
+function sumArray(array) {
+  if (array === null) {
+    return 0;
+  }
+  if (array.length <= 2) {
+    return 0;
+  }
+  // 1. Sortiramo niz
+  const sortedArr = [...array].sort((a, b) => a - b);
+  // 2. Izbacimo najmanji i najveca
+  sortedArr.pop();
+  sortedArr.shift();
+  // 3. Saberemo sve elemente tog niza
+  let sum = 0;
+  sortedArr.forEach((item, index) => {
+    sum = sum + item;
+  });
+  return sum;
+}
+
+// https://www.codewars.com/kata/5875b200d520904a04000003
+function enough(cap, on, wait) {
+  // cap=100, on=60 ===> 40 ljudi, wait=50
+  const bobCanTake = cap - on;
+  if(bobCanTake - wait >= 0){
+    return 0
+  } else {
+    return wait - bobCanTake;
+    // return on + wait - cap;
+  }
+}
